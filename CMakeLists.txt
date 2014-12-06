@@ -14,5 +14,5 @@ set(CMAKE_NM      "/usr/bin/llvm-nm")
 set(CMAKE_OBJDUMP "/usr/bin/llvm-objdump")
 set(CMAKE_RANLIB  "/usr/bin/llvm-ranlib")
 
-set(SOURCE_FILES main.cpp)
+set(SOURCE_FILES main.cxx)
 add_executable(bitwisetrie ${SOURCE_FILES})
