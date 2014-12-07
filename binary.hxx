@@ -47,14 +47,14 @@ public:
 	static inline void print(std::ostream& os, binary<A> a) {
 		for (size_t i = 0; i < sz; ++i) {
 			for (size_t j = 0; predAndPrint(os, j); ++j) {
-				static bool bit;
-				bit = bits[getBitIdx(i, j)];
-				os << bit;
+				static bit bitIdx;
+				bitIdx = (bit) a.bits[getBitIdx(i, j)];
+				os << bitIdx;
 			}
 		}
 	}
 private:
-	static inline bool getBitFromByte(byte data, byte bitIdx) {
+	static inline bit getBitFromByte(byte data, byte bitIdx) {
 		return data & (1 << bitIdx);
 	}
 
@@ -62,7 +62,7 @@ private:
 		return (byteIdx << 3) + bitIdx;
 	}
 
-	static inline bool predAndPrint(conref<std::ostream> os, conref<size_t> idx) {
+	static inline bit predAndPrint(std::ostream& os, conref<size_t> idx) {
 		const bool pred{idx < 8};
 
 		if (!pred) {
