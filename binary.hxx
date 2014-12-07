@@ -34,7 +34,7 @@ public:
 		delete [] ptr;
 	}
 
-	explicit binary(A&& a);
+	explicit binary(A&& a) : binary(a) {}
 
 	template <typename... B>
 	explicit binary(B... b) = delete;
