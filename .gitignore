@@ -84,4 +84,5 @@ crashlytics-build.properties
 *.out
 *.app
 
-
+# Exclude main.cxx
+main.cxx
