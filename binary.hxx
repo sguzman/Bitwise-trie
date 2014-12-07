@@ -37,7 +37,9 @@ public:
 	template <typename... B>
 	explicit binary(B... b) = delete;
 
-	~binary(void);
+	~binary(void) {
+		bits.~bitA();
+	}
 private:
 	static inline bool getBitFromByte(byte data, byte bit) {
 		return data & (1 << bit);
