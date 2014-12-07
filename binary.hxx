@@ -18,7 +18,7 @@ class binary final {
 public:
 	explicit binary(void) = delete;
 
-	explicit binary(conref<A> a) {
+	explicit binary(conref<A> a) noexcept {
 		byte* ptr = new byte[sz];
 		memcpy((void *) ptr, (const void* const) &a, sz);
 
@@ -35,17 +35,17 @@ public:
 		delete [] ptr;
 	}
 
-	explicit binary(A&& a) : binary(a) {}
+	explicit binary(A&& a) noexcept : binary(a) {}
 
 	template <typename... B>
 	explicit binary(B... b) = delete;
 
-	~binary(void) {
+	inline ~binary(void) noexcept{
 		bits.~bitA();
 	}
 
 private:
-	static inline void print(std::ostream& os, binary<A> a) {
+	static inline void print(std::ostream& os, binary<A> a) noexcept {
 		for (size_t i = 0; i < sz; ++i) {
 			for (size_t j = 0; predAndPrint(os, j); ++j) {
 				static bit bitIdx;
@@ -55,15 +55,15 @@ private:
 		}
 	}
 
-	static inline bit getBitFromByte(byte data, byte bitIdx) {
+	static inline bit getBitFromByte(byte data, byte bitIdx) noexcept {
 		return data & (1 << bitIdx);
 	}
 
-	static inline size_t getBitIdx(size_t byteIdx, size_t bitIdx) {
+	static inline size_t getBitIdx(size_t byteIdx, size_t bitIdx) noexcept {
 		return (byteIdx << 3) + bitIdx;
 	}
 
-	static inline bit predAndPrint(std::ostream& os, conref<size_t> idx) {
+	static inline bit predAndPrint(std::ostream& os, conref<size_t> idx) noexcept {
 		const bool pred{idx < 8};
 
 		if (!pred) {
