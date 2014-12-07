@@ -75,9 +75,7 @@ namespace despairagus {
 
 			template<typename B>
 			friend inline ostream &operator<<(ostream &os, binary<B> &&a) noexcept {
-				a.print();
-
-				return os;
+				return operator<<(os, a);
 			}
 
 		private:
