@@ -1,4 +1,7 @@
+#pragma once
+
 #include <bitset>
+#include <cstring>
 
 template <typename A>
 class binary final {
