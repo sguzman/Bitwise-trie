@@ -95,7 +95,6 @@ namespace despairagus {
 				}
 			}
 
-
 			static inline bit getBitFromByte(conref<byte> data, conref<byte> bitIdx) noexcept {
 				return data & (1 << bitIdx);
 			}
