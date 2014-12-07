@@ -27,7 +27,7 @@ public:
 			for (size_t j = 0; j < 8; ++j) {
 				static bool bit;
 				bit = binary::getBitFromByte(ch, j);
-				this->bitA[(i << 3) + j] = bit;
+				this->bits[(i << 3) + j] = bit;
 			}
 		}
 	}
