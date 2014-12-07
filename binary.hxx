@@ -27,7 +27,7 @@ public:
 			for (size_t j = 0; j < 8; ++j) {
 				static bool bit;
 				bit = binary::getBitFromByte(ch, j);
-				this->bits[(i << 3) + j] = bit;
+				this->bits[getBitIdx(j, i)] = bit;
 			}
 		}
 	}
@@ -44,6 +44,20 @@ private:
 	static inline bool getBitFromByte(byte data, byte bit) {
 		return data & (1 << bit);
 	}
+
+	static inline size_t getBitIdx(size_t byteIdx, size_t bitIdx) {
+		return (byteIdx << 3) + bitIdx;
+	}
+
+	static inline bool predAndPrint(conref<std::ostream> os, conref<size_t> idx) {
+		const bool pred{idx < 8};
+
+		if (!pred) {
+			os << ' ';
+		}
+
+		return pred;
+	} ;
 
 	bitA bits;
 };
