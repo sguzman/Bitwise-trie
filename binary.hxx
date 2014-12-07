@@ -63,8 +63,15 @@ namespace bitwise {
 		}
 
 		template <typename B>
-		friend inline ostream& operator<<(ostream& os, conref<binary<A>> a) noexcept {
-			binary<A>::print();
+		friend inline ostream& operator<<(ostream& os, conref<binary<B>> a) noexcept {
+			a.print();
+
+			return os;
+		}
+
+		template <typename B>
+		friend inline ostream& operator<<(ostream& os, binary<B>&& a) noexcept {
+			a.print();
 
 			return os;
 		}
@@ -86,11 +93,6 @@ namespace bitwise {
 			}
 		}
 
-		static inline ostream& print(std::ostream& os, conref<binary<A>> a) noexcept {
-			binary<A>::print(os, a);
-
-			return os;
-		}
 
 		static inline bit getBitFromByte(conref<byte> data, conref<byte> bitIdx) noexcept {
 			return data & (1 << bitIdx);
