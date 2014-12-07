@@ -45,12 +45,18 @@ public:
 	}
 
 private:
-	static inline void print(std::ostream& os, binary<A> a) noexcept {
+	static inline void print(std::ostream& os, conref<binary<A>> a) noexcept {
+		constexpr static size_t szOneLess{sz - 1};
+
 		for (size_t i = 0; i < sz; ++i) {
-			for (size_t j = 0; predAndPrint(os, j); ++j) {
+			for (size_t j = 0; j < 8; ++j) {
 				static bit bitIdx;
 				bitIdx = (bit) a.bits[getBitIdx(i, j)];
 				os << bitIdx;
+			}
+
+			if (szOneLess != i) {
+				os << ' ';
 			}
 		}
 	}
@@ -62,16 +68,6 @@ private:
 	static inline size_t getBitIdx(size_t byteIdx, size_t bitIdx) noexcept {
 		return (byteIdx << 3) + bitIdx;
 	}
-
-	static inline bit predAndPrint(std::ostream& os, conref<size_t> idx) noexcept {
-		const bool pred{idx < 8};
-
-		if (!pred) {
-			os << ' ';
-		}
-
-		return pred;
-	} ;
 
 	bitA bits;
 };
