@@ -4,7 +4,6 @@
 #include <cstring>
 #include <iostream>
 
-
 namespace bitwise {
 	using std::cout;
 	using std::ostream;
@@ -61,6 +60,9 @@ namespace bitwise {
 		inline bool getBit(conref<byte> byteIdx, conref<byte> bitIdx) const noexcept {
 			return binary<A>::getBit(*this, byteIdx, bitIdx);
 		}
+
+		template <typename... B>
+		inline bool getBit(B... b) const noexcept = delete;
 
 		template <typename B>
 		friend inline ostream& operator<<(ostream& os, conref<binary<B>> a) noexcept {
