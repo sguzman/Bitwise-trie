@@ -44,6 +44,7 @@ public:
 		bits.~bitA();
 	}
 
+private:
 	static inline void print(std::ostream& os, binary<A> a) {
 		for (size_t i = 0; i < sz; ++i) {
 			for (size_t j = 0; predAndPrint(os, j); ++j) {
@@ -53,7 +54,7 @@ public:
 			}
 		}
 	}
-private:
+
 	static inline bit getBitFromByte(byte data, byte bitIdx) {
 		return data & (1 << bitIdx);
 	}
