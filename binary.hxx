@@ -30,6 +30,8 @@ public:
 				this->bits[getBitIdx(j, i)] = bit;
 			}
 		}
+
+		delete [] ptr;
 	}
 
 	explicit binary(A&& a);
