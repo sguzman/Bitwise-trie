@@ -27,8 +27,8 @@ public:
 			ch = ptr[i];
 			for (size_t j = 0; j < 8; ++j) {
 				static bool bitVal;
-				bitVal = binary::getBitFromByte(ch, j);
-				this->bits[getBitIdx(i, j)] = bitVal;
+				bitVal = binary<A>::getBitFromByte(ch, j);
+				this->bits[binary<A>::getBitIdx(i, j)] = bitVal;
 			}
 		}
 
@@ -53,7 +53,7 @@ public:
 	}
 
 	inline bool getBit(conref<byte> byteIdx, conref<byte> bitIdx) const noexcept {
-		return getBit(*this, byteIdx, bitIdx);
+		return binary<A>::getBit(*this, byteIdx, bitIdx);
 	}
 
 private:
