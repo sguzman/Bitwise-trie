@@ -42,6 +42,16 @@ public:
 	~binary(void) {
 		bits.~bitA();
 	}
+
+	static inline void print(std::ostream& os, binary<A> a) {
+		for (size_t i = 0; i < sz; ++i) {
+			for (size_t j = 0; predAndPrint(os, j); ++j) {
+				static bool bit;
+				bit = bits[getBitIdx(i, j)];
+				os << bit;
+			}
+		}
+	}
 private:
 	static inline bool getBitFromByte(byte data, byte bit) {
 		return data & (1 << bit);
