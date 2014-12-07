@@ -9,6 +9,7 @@ class binary final {
 	constexpr static size_t szB{sz << 3};
 
 	using bitA = std::bitset<szB>;
+	using byte = unsigned char;
 
 public:
 	explicit binary(void) = delete;
