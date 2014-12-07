@@ -17,7 +17,7 @@ class binary final {
 public:
 	explicit binary(void) = delete;
 
-	explicit binary(conref<A> a) nowthrow {
+	explicit binary(conref<A> a) {
 		byte* ptr = new byte[sz];
 		memcpy((void *) ptr, (const void* const) &a, sz);
 
@@ -39,7 +39,7 @@ public:
 
 	~binary(void);
 private:
-	static inline bool getBitFromByte(byte data, byte bit) nothrow {
+	static inline bool getBitFromByte(byte data, byte bit) {
 		return data & (1 << bit);
 	}
 
