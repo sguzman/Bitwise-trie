@@ -4,7 +4,7 @@
 #include <cstring>
 #include <iostream>
 
-namespace desparaigus {
+namespace despairagus {
 	namespace bitwise {
 		using std::cout;
 		using std::ostream;
