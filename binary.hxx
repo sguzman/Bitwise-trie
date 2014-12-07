@@ -28,7 +28,7 @@ public:
 			for (size_t j = 0; j < 8; ++j) {
 				static bool bitVal;
 				bitVal = binary::getBitFromByte(ch, j);
-				this->bits[getBitIdx(j, i)] = bitVal;
+				this->bits[getBitIdx(i, j)] = bitVal;
 			}
 		}
 
