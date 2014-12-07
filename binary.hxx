@@ -13,6 +13,7 @@ class binary final {
 
 	using bitA = std::bitset<szB>;
 	using byte = unsigned char;
+	using bit = bool;
 
 public:
 	explicit binary(void) = delete;
@@ -25,9 +26,9 @@ public:
 			static byte ch;
 			ch = ptr[i];
 			for (size_t j = 0; j < 8; ++j) {
-				static bool bit;
-				bit = binary::getBitFromByte(ch, j);
-				this->bits[getBitIdx(j, i)] = bit;
+				static bool bitVal;
+				bitVal = binary::getBitFromByte(ch, j);
+				this->bits[getBitIdx(j, i)] = bitVal;
 			}
 		}
 
@@ -53,8 +54,8 @@ public:
 		}
 	}
 private:
-	static inline bool getBitFromByte(byte data, byte bit) {
-		return data & (1 << bit);
+	static inline bool getBitFromByte(byte data, byte bitIdx) {
+		return data & (1 << bitIdx);
 	}
 
 	static inline size_t getBitIdx(size_t byteIdx, size_t bitIdx) {
