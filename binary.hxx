@@ -9,7 +9,7 @@ class binary final {
 	using conref = const B&;
 
 	constexpr static size_t sz{sizeof(A)};
-	constexpr static size_t szB{sz << 3};
+	constexpr static auto szB{sz << 3};
 
 	using bitA = std::bitset<szB>;
 	using byte = unsigned char;
