@@ -44,6 +44,10 @@ public:
 		bits.~bitA();
 	}
 
+	inline void print(void) const noexcept {
+		binary<A>::print(std::cout, *this);
+	}
+
 private:
 	static inline void print(std::ostream& os, conref<binary<A>> a) noexcept {
 		constexpr static size_t szOneLess{sz - 1};
