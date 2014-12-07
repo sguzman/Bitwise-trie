@@ -11,7 +11,7 @@ class binary final {
 	using bitA = std::bitset<szB>;
 
 public:
-	explicit binary(void) = null;
+	explicit binary(void) = delete;
 
 	explicit binary(conref<A> a);
 
