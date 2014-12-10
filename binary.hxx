@@ -102,6 +102,10 @@ namespace despairagus {
 				return operator<<(os, a);
 			}
 
+			explicit operator bool(void) const noexcept {
+				return this->bits.all();
+			}
+
 		private:
 			static inline void print(std::ostream &os, conref<binary<A>> a) noexcept {
 				constexpr static size_t szOneLess{sz - 1};
