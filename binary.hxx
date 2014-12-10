@@ -5,7 +5,7 @@
 #include <iostream>
 
 namespace despairagus {
-	namespace bitwise {
+	namespace binary {
 		using std::cout;
 		using std::ostream;
 
