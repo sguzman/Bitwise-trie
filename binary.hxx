@@ -92,7 +92,7 @@ namespace despairagus {
 
 			template <typename B>
 			friend inline ostream &operator<<(ostream &os, conref<binary<B>> a) noexcept {
-				a.print();
+				a.print(os, a);
 
 				return os;
 			}
