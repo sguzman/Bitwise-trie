@@ -16,6 +16,7 @@ namespace despairagus {
 
 			constexpr static const size_t sz{sizeof(A)};
 			constexpr static const size_t szB{sz << 3};
+			constexpr static const size_t szOneLess{sz - 1};
 
 			using bitA = std::bitset<szB>;
 			using byte = unsigned char;
@@ -116,8 +117,6 @@ namespace despairagus {
 
 		private:
 			static inline void print(std::ostream &os, conref<binary<A>> a) noexcept {
-				constexpr static size_t szOneLess{sz - 1};
-
 				for (size_t i = 0; i < sz; ++i) {
 					for (size_t j = 0; j < 8; ++j) {
 						static bit bitIdx;
