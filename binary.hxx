@@ -63,6 +63,14 @@ namespace despairagus {
 				return this->getBit(idx);
 			}
 
+			inline bool getBit(conref<size_t> a, conref<size_t> b) const noexcept {
+				return this->getBit(binary<A>::getBitIdx((byte) a, (byte) b));
+			}
+
+			inline bool getBit(size_t &&a, size_t &&b) const noexcept {
+				return this->getBit(a, b);
+			}
+
 			inline bool getBit(conref<int> idx) const noexcept {
 				return this->getBit((size_t) idx);
 			}
@@ -80,11 +88,11 @@ namespace despairagus {
 			}
 
 			inline bool getBit(conref<int> byteIdx, conref<int> bitIdx) const noexcept {
-				return binary<A>::getBit((byte) byteIdx + 0, (byte) bitIdx + 0);
+				return binary<A>::getBit((size_t) byteIdx, (size_t) bitIdx);
 			}
 
 			inline bool getBit(int&& byteIdx, int&& bitIdx) const noexcept {
-				return binary<A>::getBit((byte) byteIdx + 0, (byte) bitIdx + 0);
+				return binary<A>::getBit(byteIdx, bitIdx);
 			}
 
 			template <typename... B>
