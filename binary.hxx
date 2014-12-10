@@ -9,7 +9,7 @@ namespace despairagus {
 		using std::cout;
 		using std::ostream;
 
-		template<typename A>
+		template <typename A>
 		class binary final {
 			template<typename B>
 			using conref = const B &;
@@ -44,7 +44,7 @@ namespace despairagus {
 			explicit binary(A &&a) noexcept : binary(a) {
 			}
 
-			template<typename... B>
+			template <typename... B>
 			explicit binary(B... b) = delete;
 
 			inline ~binary(void) noexcept {
@@ -87,17 +87,17 @@ namespace despairagus {
 				return binary<A>::getBit((byte) byteIdx + 0, (byte) bitIdx + 0);
 			}
 
-			template<typename... B>
+			template <typename... B>
 			inline bool getBit(B... b) const noexcept = delete;
 
-			template<typename B>
+			template <typename B>
 			friend inline ostream &operator<<(ostream &os, conref<binary<B>> a) noexcept {
 				a.print();
 
 				return os;
 			}
 
-			template<typename B>
+			template <typename B>
 			friend inline ostream &operator<<(ostream &os, binary<B> &&a) noexcept {
 				return operator<<(os, a);
 			}
