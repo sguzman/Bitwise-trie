@@ -19,7 +19,7 @@ A quick rundown on how this is done.
 
 A list of things I still need to do
 
- - [] TODO - implement binary container
+ - [x] TODO - implement binary container
  - [] TODO - implement bitwise trie
 
 
