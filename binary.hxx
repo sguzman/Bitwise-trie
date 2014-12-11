@@ -14,13 +14,13 @@ namespace despairagus {
 			template<typename B>
 			using conref = const B &;
 
-			constexpr static const size_t sz{sizeof(A)};
-			constexpr static const size_t szB{sz << 3};
-			constexpr static const size_t szOneLess{sz - 1};
-
 			using bitA = std::bitset<szB>;
 			using byte = unsigned char;
 			using bit = bool;
+
+			constexpr static const size_t sz{sizeof(A)};
+			constexpr static const size_t szB{sz << 3};
+			constexpr static const size_t szOneLess{sz - 1};
 
 		public:
 			explicit binary(void) = delete;
