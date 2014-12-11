@@ -10,7 +10,7 @@ namespace despairagus {
 		using std::ostream;
 
 		template <typename A>
-		class bitwisetrie {
+		class bitwisetrie final {
 			template<typename B>
 			using conref = const B &;
 
