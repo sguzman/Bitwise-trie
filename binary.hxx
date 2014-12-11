@@ -115,6 +115,10 @@ namespace despairagus {
 				return this->bits.all();
 			}
 
+			constexpr static inline size_t getSize(void) const noexcept {
+				return sz;
+			}
+
 		private:
 			static inline void print(std::ostream &os, conref<binary<A>> a) noexcept {
 				for (size_t i = 0; i < sz; ++i) {
