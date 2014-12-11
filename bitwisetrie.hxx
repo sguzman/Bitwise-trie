@@ -14,7 +14,7 @@ namespace despairagus {
 			template<typename B>
 			using conref = const B &;
 
-			using bitA = std::bitset<szB>;
+			using bitA = std::bitset<sizeof(A) << 3>;
 			using byte = unsigned char;
 			using bit = bool;
 
