@@ -11,6 +11,13 @@ namespace despairagus {
 
 		template <typename A>
 		class bitwisetrie {
+			template<typename B>
+			using conref = const B &;
+
+			using bitA = std::bitset<szB>;
+			using byte = unsigned char;
+			using bit = bool;
+
 			explicit bitwisetrie(void) = delete;
 		};
 	}
