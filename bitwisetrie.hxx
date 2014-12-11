@@ -18,7 +18,10 @@ namespace despairagus {
 			using byte = unsigned char;
 			using bit = bool;
 
+		public:
 			explicit bitwisetrie(void) = delete;
+
+		private:
 		};
 	}
 }
