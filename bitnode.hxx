@@ -4,8 +4,9 @@ namespace despairagus {
 	namespace bitnode {
 		template <typename A>
 		class bitnode {
-			explicit bitnode(void) : zero{nullptr}, one{nullptr} {}
 		public:
+			explicit bitnode(void) : zero{nullptr}, one{nullptr} {}
+
 		private:
 			bitnode* zero;
 			bitnode* one;
