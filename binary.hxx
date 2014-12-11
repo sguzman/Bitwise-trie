@@ -115,7 +115,7 @@ namespace despairagus {
 				return this->bits.all();
 			}
 
-			constexpr static inline size_t getSize(void) const noexcept {
+			constexpr static inline size_t getSize(void) noexcept {
 				return sz;
 			}
 
