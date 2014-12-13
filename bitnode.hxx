@@ -3,7 +3,7 @@
 namespace despairagus {
 	namespace bitnode {
 		template <typename A>
-		class bitnode {
+		class bitnode final {
 			namespace {
 				template<typename B>
 				using conref = const B &;
