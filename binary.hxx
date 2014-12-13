@@ -11,43 +11,41 @@ namespace despairagus {
 
 		template <typename A>
 		class binary final {
-			namespace {
-				template<typename B>
-				using conref = const B &;
+			template<typename B>
+			using conref = const B &;
 
-				using bitA = std::bitset<sizeof(A) << 3>;
-				using byte = unsigned char;
-				using bit = bool;
+			using bitA = std::bitset<sizeof(A) << 3>;
+			using byte = unsigned char;
+			using bit = bool;
 
-				constexpr static const size_t sz{sizeof(A)};
-				constexpr static const size_t szB{sz << 3};
-				constexpr static const size_t szOneLess{sz - 1};
+			constexpr static const size_t sz{sizeof(A)};
+			constexpr static const size_t szB{sz << 3};
+			constexpr static const size_t szOneLess{sz - 1};
 
-				static inline void print(std::ostream &os, conref<binary<A>> a) noexcept {
-					for (size_t i = 0; i < sz; ++i) {
-						for (size_t j = 0; j < 8; ++j) {
-							static bit bitIdx;
-							bitIdx = (bit) a.bits[getBitIdx(i, j)];
-							os << bitIdx;
-						}
+			static inline void print(std::ostream &os, conref<binary<A>> a) noexcept {
+				for (size_t i = 0; i < sz; ++i) {
+					for (size_t j = 0; j < 8; ++j) {
+						static bit bitIdx;
+						bitIdx = (bit) a.bits[getBitIdx(i, j)];
+						os << bitIdx;
+					}
 
-						if (szOneLess != i) {
-							os << ' ';
-						}
+					if (szOneLess != i) {
+						os << ' ';
 					}
 				}
+			}
 
-				static inline bit getBitFromByte(conref<byte> data, conref<byte> bitIdx) noexcept {
-					return data & (1 << bitIdx);
-				}
+			static inline bit getBitFromByte(conref<byte> data, conref<byte> bitIdx) noexcept {
+				return data & (1 << bitIdx);
+			}
 
-				static inline size_t getBitIdx(conref<size_t> byteIdx, conref<size_t> bitIdx) noexcept {
-					return (byteIdx << 3) + bitIdx;
-				}
+			static inline size_t getBitIdx(conref<size_t> byteIdx, conref<size_t> bitIdx) noexcept {
+				return (byteIdx << 3) + bitIdx;
+			}
 
-				static inline bit getBit(conref<binary<A>> bits, conref<size_t> byteIdx, conref<size_t> bitIdx) noexcept {
-					return bits[getBitIdx(byteIdx, bitIdx)];
-				}
+			static inline bit getBit(conref<binary<A>> bits, conref<size_t> byteIdx, conref<size_t> bitIdx) noexcept {
+				return bits[getBitIdx(byteIdx, bitIdx)];
 			}
 
 		public:
