@@ -20,7 +20,9 @@ A quick rundown on how this is done.
 A list of things I still need to do
 
  - [x] TODO - implement binary container
+ - [x] TODO - implement bitwise node
  - [] TODO - implement bitwise trie
+ - [] TODO - implement option to output trie in dot format
 
 
 And here's some code!
