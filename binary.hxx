@@ -42,8 +42,7 @@ namespace despairagus {
 				delete[] ptr;
 			}
 
-			inline explicit binary(A &&a) noexcept : binary(a) {
-			}
+			inline explicit binary(A &&a) noexcept : binary(a) {}
 
 			template <typename... B>
 			explicit binary(B... b) = delete;
