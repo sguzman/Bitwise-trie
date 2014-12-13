@@ -11,25 +11,19 @@ namespace {
 				using byte = unsigned char;
 				using bit = bool;
 
-				template <typename A>
-				static inline void killPtr(A* &a) noexcept {
+				template <typename B>
+				static inline void killPtr(B* &a) noexcept {
 					if (a != nullptr) {
 						delete a;
 						a = nullptr;
 					}
 				}
 
-				template <>
-				static inline void killPtr(A) noexcept;
-
-				template <>
-				static inline void killPtr(bitnode<A>) noexcept;
-
 			public:
 				inline explicit bitnode(void) noexcept : zero{nullptr}, one{nullptr}, data{nullptr} {}
 
-				template <typename... A>
-				explicit bitnode(A... a) = delete;
+				template <typename... B>
+				explicit bitnode(B... b) = delete;
 
 				inline ~bitnode(void) noexcept {
 					if (data != nullptr) {
