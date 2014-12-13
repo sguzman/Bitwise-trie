@@ -11,7 +11,7 @@ namespace despairagus {
 			using bit = bool;
 
 		public:
-			explicit bitnode(void) : zero{nullptr}, one{nullptr}, data{nullptr} {}
+			inline explicit bitnode(void) : zero{nullptr}, one{nullptr}, data{nullptr} {}
 
 		private:
 			bitnode* zero;
