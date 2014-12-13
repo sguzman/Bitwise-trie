@@ -11,7 +11,7 @@ namespace despairagus {
 			using bit = bool;
 
 		public:
-			inline explicit bitnode(void) : zero{nullptr}, one{nullptr}, data{nullptr} {}
+			inline explicit bitnode(void) noexcept : zero{nullptr}, one{nullptr}, data{nullptr} {}
 
 			template <typename... A>
 			explicit bitnode(A... a) = delete;
