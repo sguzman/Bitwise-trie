@@ -32,9 +32,60 @@ namespace despairagus {
 			template <typename... A>
 			explicit bitnode(A... a) = delete;
 
+			inline ~bitnode(void) noexcept {
+				if (data != nullptr) {
+					delete data;
+				}
+			}
+
+			inline void dump(void) noexcept {
+				bitnode<A>::killPtr<A>(data);
+			}
+
+			inline const A &getData(void) const noexcept {
+				return *data;
+			}
+
+			inline void setData(conref<A> a) noexcept {
+				this->dump();
+				data = new A{a};
+			}
+
+			inline void dumpZero(void) noexcept {
+				bitnode<A>::killPtr<bitnode<A>>(zero);
+			}
+
+			inline bitnode<A>* getZero(void) const noexcept {
+				return *zero;
+			}
+
+			inline void setZero(bitnode<A>* a) noexcept {
+				this->dumpZero();
+				data = a;
+			}
+
+			inline void dumpOne(void) noexcept {
+				bitnode<A>::killPtr<bitnode<A>>(one);
+			}
+
+			inline bitnode<A>* getOne(void) const noexcept {
+				return *one;
+			}
+
+			inline void setOne(bitnode<A>* a) noexcept {
+				this->dumpOne();
+				data = a;
+			}
+
+			inline void dumpAll(void) noexcept {
+				this->dump();
+				this->dumpZero();
+				this->dumpOne();
+			}
+
 		private:
-			bitnode* zero;
-			bitnode* one;
+			bitnode<A>* zero;
+			bitnode<A>* one;
 
 			A* data;
 		};
