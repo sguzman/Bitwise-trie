@@ -3,6 +3,7 @@
 #include <iostream>
 
 #include "binary.hxx"
+#include "bitnode.hxx"
 
 namespace despairagus {
 	namespace bitwisetrie {
