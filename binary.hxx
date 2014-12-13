@@ -25,7 +25,7 @@ namespace despairagus {
 		public:
 			explicit binary(void) = delete;
 
-			explicit binary(conref<A> a) noexcept {
+			inline explicit binary(conref<A> a) noexcept {
 				byte *ptr = new byte[sz];
 				memcpy((void *) ptr, (const void *const) &a, sz);
 
@@ -42,7 +42,7 @@ namespace despairagus {
 				delete[] ptr;
 			}
 
-			explicit binary(A &&a) noexcept : binary(a) {
+			inline explicit binary(A &&a) noexcept : binary(a) {
 			}
 
 			template <typename... B>
