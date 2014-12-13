@@ -4,7 +4,6 @@ namespace despairagus {
 	namespace bitnode {
 		template <typename A>
 		class bitnode final {
-			namespace {
 				template<typename B>
 				using conref = const B &;
 
@@ -24,7 +23,6 @@ namespace despairagus {
 
 				template <>
 				static inline void killPtr(bitnode<A>) noexcept;
-			}
 
 		public:
 			inline explicit bitnode(void) noexcept : zero{nullptr}, one{nullptr}, data{nullptr} {}
