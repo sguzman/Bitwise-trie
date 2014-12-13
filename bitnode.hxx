@@ -42,13 +42,18 @@ namespace despairagus {
 				bitnode<A>::killPtr<A>(data);
 			}
 
-			inline const A &getData(void) const noexcept {
-				return *data;
+			inline A* getData(void) const noexcept {
+				return data;
 			}
 
 			inline void setData(conref<A> a) noexcept {
 				this->dump();
 				data = new A{a};
+			}
+
+			inline void setData(A* a) noexcept {
+				this->dump();
+				data = a;
 			}
 
 			inline void dumpZero(void) noexcept {
