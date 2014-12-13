@@ -13,6 +13,9 @@ namespace despairagus {
 		public:
 			inline explicit bitnode(void) : zero{nullptr}, one{nullptr}, data{nullptr} {}
 
+			template <typename... A>
+			explicit bitnode(A... a) = delete;
+
 		private:
 			bitnode* zero;
 			bitnode* one;
