@@ -86,6 +86,38 @@ namespace despairagus {
 				this->dumpOne();
 			}
 
+			inline bool isEmpty(void) const noexcept {
+				return data == nullptr;
+			}
+
+			inline bool isNotEmpty(void) const noexcept {
+				return !this->isEmpty();
+			}
+
+			inline bool haveZero(void) const noexcept {
+				return zero == nullptr;
+			}
+
+			inline bool noZero(void) const noexcept {
+				return !this->noZero();
+			}
+
+			inline bool haveOne(void) const noexcept {
+				return one == nullptr;
+			}
+
+			inline bool noOne(void) const noexcept {
+				return !this->noOne();
+			}
+
+			inline bool isBarren(void) const noexcept {
+				return this->haveZero() && this->haveOne();
+			}
+
+			inline bool isNotBarren(void) const noexcept {
+				return !this->isBarren();
+			}
+
 		private:
 			bitnode<A>* zero;
 			bitnode<A>* one;
