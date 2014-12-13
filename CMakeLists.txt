@@ -8,7 +8,7 @@ set(CMAKE_CXX_FLAGS_MINSIZEREL     "-Os -DNDEBUG")
 set(CMAKE_CXX_FLAGS_RELEASE        "-O4 -DNDEBUG")
 set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-O2 -g")
 
-set(CMAKE_VERBOSE_MAKEFILE "TRUE")
+set(CMAKE_VERBOSE_MAKEFILE "FALSE")
 
 #set(CMAKE_AR      "/usr/bin/llvm-ar")
 #set(CMAKE_LINKER  "/usr/bin/llvm-link")
