@@ -11,11 +11,13 @@ namespace despairagus {
 			using bit = bool;
 
 		public:
-			explicit bitnode(void) : zero{nullptr}, one{nullptr} {}
+			explicit bitnode(void) : zero{nullptr}, one{nullptr}, data{nullptr} {}
 
 		private:
 			bitnode* zero;
 			bitnode* one;
+
+			A* data;
 		};
 	}
 }
