@@ -21,8 +21,48 @@ namespace despairagus {
 
 			constexpr static const size_t limit{sizeof(A) << 3};
 
+			static inline bitnode<A>* navigate(bitnode<A>* currNode, conref<A> data) {
+				return bitwisetrie<A>::navigate(currNode, data, 0);
+			}
+
+			static inline bitnode<A>* navigate(bitnode<A>* currNode, conref<A> data, conref<size_t> idx) {
+				binary<A> bitHolder{data};
+
+				return bitwisetrie<A>::navigate(currNode, data, bitHolder, idx);
+			}
+
+			static bitnode<A>* navigate(bitnode<A>* currNode, conref<A> data, conref<binary<A>> bits, conref<size_t> idx) {
+				if (idx < limit) {
+					if (bits.getBit(idx)) {
+						if (currNode->getOne() == nullptr) {
+							currNode->setOne(new bitnode<A>);
+						}
+
+						return bitwisetrie<A>::navigate(currNode->getOne(), data, bits, idx + 1);
+					} else {
+						if (currNode->getZero() == nullptr) {
+							currNode->setZero(new bitnode<A>);
+						}
+
+						return bitwisetrie<A>::navigate(currNode->getZero(), data, bits, idx + 1);
+					}
+				}
+
+				return currNode;
+			}
+
 		public:
-			explicit bitwisetrie(void) = delete;
+			explicit bitwisetrie(void) : root{nullptr} {}
+
+			bool insert(conref<A> a) noexcept {
+				bitnode<A>* leafNode = bitwisetrie<A>::navigate(root, a);
+
+				if (leafNode->isNotEmpty()) {
+					leafNode->setData(a);
+				}
+
+				return leafNode->isEmpty();
+			}
 
 		private:
 			bitnode<A>* root;
