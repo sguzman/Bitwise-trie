@@ -19,10 +19,13 @@ namespace despairagus {
 			using byte = unsigned char;
 			using bit = bool;
 
+			constexpr static const size_t limit{sizeof(A) << 3};
+
 		public:
 			explicit bitwisetrie(void) = delete;
 
 		private:
+			bitnode<A>* root;
 		};
 	}
 }
