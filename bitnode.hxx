@@ -52,12 +52,12 @@ namespace {
 		}
 
 		inline bitnode<A>* getZero(void) const noexcept {
-			return *zero;
+			return zero;
 		}
 
 		inline void setZero(bitnode<A>* a) noexcept {
 			this->dumpZero();
-			data = a;
+			zero = a;
 		}
 
 		inline void dumpOne(void) noexcept {
@@ -65,12 +65,12 @@ namespace {
 		}
 
 		inline bitnode<A>* getOne(void) const noexcept {
-			return *one;
+			return one;
 		}
 
 		inline void setOne(bitnode<A>* a) noexcept {
 			this->dumpOne();
-			data = a;
+			one = a;
 		}
 
 		inline void dumpAll(void) noexcept {
