@@ -54,7 +54,7 @@ namespace despairagus {
 		public:
 			explicit bitwisetrie(void) : root{new bitnode<A>} {}
 
-			bool insert(conref<A> a) noexcept {
+			bool insertOnEmpty(conref<A> a) noexcept {
 				bitnode<A>* leafNode = bitwisetrie<A>::navigate(root, a);
 
 				if (leafNode->isEmpty()) {
