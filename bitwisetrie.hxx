@@ -12,7 +12,7 @@ namespace despairagus {
 		using namespace bitnodeNS;
 		using namespace binaryNS;
 
-		template <typename A>
+		template <typename A, typename B>
 		class bitwisetrie final {
 			template<typename C>
 			using conref = const C&;
@@ -24,12 +24,13 @@ namespace despairagus {
 			constexpr static const size_t limit{sizeof(A) << 3};
 
 			static inline bitnode<B>* navigate(bitnode<B>* currNode, conref<A> data) {
+				return bitwisetrie<A,B>::navigate(currNode, data, 0);
 			}
 
 			static inline bitnode<B>* navigate(bitnode<B>* currNode, conref<A> data, conref<size_t> idx) {
 				binary<A> bitHolder{data};
 
-				return bitwisetrie<A>::navigate(currNode, bitHolder, idx);
+				return bitwisetrie<A,B>::navigate(currNode, bitHolder, idx);
 			}
 
 			static bitnode<B>* navigate(bitnode<B>* currNode, conref<binary<A>> bits, conref<size_t> idx) {
@@ -39,13 +40,13 @@ namespace despairagus {
 							currNode->setOne(new bitnode<B>);
 						}
 
-						return bitwisetrie<A>::navigate(currNode->getOne(), bits, idx + 1);
+						return bitwisetrie<A,B>::navigate(currNode->getOne(), bits, idx + 1);
 					} else {
 						if (currNode->getZero() == nullptr) {
 							currNode->setZero(new bitnode<B>);
 						}
 
-						return bitwisetrie<A>::navigate(currNode->getZero(), bits, idx + 1);
+						return bitwisetrie<A,B>::navigate(currNode->getZero(), bits, idx + 1);
 					}
 				}
 
@@ -56,6 +57,7 @@ namespace despairagus {
 			explicit bitwisetrie(void) : root{new bitnode<B>} {}
 
 			inline bool insertOnEmpty(conref<B> a) noexcept {
+				bitnode<B>* leafNode = bitwisetrie<A,B>::navigate(root, a);
 
 				if (leafNode->isEmpty()) {
 					leafNode->setData(a);
