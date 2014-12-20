@@ -113,5 +113,8 @@ namespace despairagus {
 		private:
 			bitnode<B>* root;
 		};
+
+		template <typename A>
+		bitwisetrie<A,A>;
 	}
 }
