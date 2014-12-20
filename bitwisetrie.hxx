@@ -78,6 +78,18 @@ namespace despairagus {
 				return false;
 			}
 
+			inline bool contains(conref<A> a) noexcept {
+				bitnode<A>* leafNode = bitwisetrie::navigate(root, a);
+
+				return leafNode->isNotEmpty();
+			}
+
+			inline bool notContains(conref<A> a) noexcept {
+				bitnode<A>* leafNode = bitwisetrie::navigate(root, a);
+
+				return leafNode->isEmpty();
+			}
+
 		private:
 			bitnode<A>* root;
 		};
