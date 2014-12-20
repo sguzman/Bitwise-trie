@@ -56,11 +56,11 @@ namespace despairagus {
 		public:
 			explicit bitwisetrie(void) : root{new bitnode<B>} {}
 
-			inline bool insertOnEmpty(conref<B> a) noexcept {
+			inline bool insertOnEmpty(conref<A> a, conref<B> b) noexcept {
 				bitnode<B>* leafNode = bitwisetrie<A,B>::navigate(root, a);
 
 				if (leafNode->isEmpty()) {
-					leafNode->setData(a);
+					leafNode->setData(b);
 
 					return true;
 				}
@@ -68,11 +68,11 @@ namespace despairagus {
 				return false;
 			}
 
-			inline bool insertOnNotEmpty(conref<B> a) noexcept {
+			inline bool insertOnNotEmpty(conref<A> a, conref<B> b) noexcept {
 				bitnode<B>* leafNode = bitwisetrie<A,B>::navigate(root, a);
 
 				if (leafNode->isNotEmpty()) {
-					leafNode->setData(a);
+					leafNode->setData(b);
 
 					return true;
 				}
@@ -80,13 +80,13 @@ namespace despairagus {
 				return false;
 			}
 
-			inline void insert(conref<B> a) noexcept {
+			inline void insert(conref<A> a, conref<B> b) noexcept {
 				bitnode<B>* leafNode = bitwisetrie<A,B>::navigate(root, a);
 
 				leafNode->setData(a);
 			}
 
-			inline bool remove(conref<B> a) noexcept {
+			inline bool remove(conref<A> a) noexcept {
 				bitnode<B>* leafNode = bitwisetrie<A,B>::navigate(root, a);
 
 				if (leafNode->isNotEmpty()) {
@@ -98,13 +98,13 @@ namespace despairagus {
 				return false;
 			}
 
-			inline bool contains(conref<B> a) noexcept {
+			inline bool contains(conref<A> a) noexcept {
 				bitnode<B>* leafNode = bitwisetrie<A,B>::navigate(root, a);
 
 				return leafNode->isNotEmpty();
 			}
 
-			inline bool notContains(conref<B> a) noexcept {
+			inline bool notContains(conref<A> a) noexcept {
 				bitnode<B>* leafNode = bitwisetrie<A,B>::navigate(root, a);
 
 				return leafNode->isEmpty();
@@ -113,8 +113,5 @@ namespace despairagus {
 		private:
 			bitnode<B>* root;
 		};
-
-		template <typename A>
-		bitwisetrie<A,A>;
 	}
 }
