@@ -28,10 +28,10 @@ namespace despairagus {
 			static inline bitnode<A>* navigate(bitnode<A>* currNode, conref<A> data, conref<size_t> idx) {
 				binary<A> bitHolder{data};
 
-				return bitwisetrie<A>::navigate(currNode, data, bitHolder, idx);
+				return bitwisetrie<A>::navigate(currNode, bitHolder, idx);
 			}
 
-			static bitnode<A>* navigate(bitnode<A>* currNode, conref<A> data, conref<binary<A>> bits, conref<size_t> idx) {
+			static bitnode<A>* navigate(bitnode<A>* currNode, conref<binary<A>> bits, conref<size_t> idx) {
 				if (idx < limit) {
 					if (bits.getBit(idx)) {
 						if (currNode->getOne() == nullptr) {
