@@ -14,8 +14,8 @@ namespace despairagus {
 
 		template <typename A>
 		class bitwisetrie final {
-			template<typename B>
-			using conref = const B &;
+			template<typename C>
+			using conref = const C&;
 
 			using bitA = std::bitset<sizeof(A) << 3>;
 			using byte = unsigned char;
