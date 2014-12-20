@@ -23,27 +23,26 @@ namespace despairagus {
 
 			constexpr static const size_t limit{sizeof(A) << 3};
 
-			static inline bitnode<A>* navigate(bitnode<A>* currNode, conref<A> data) {
-				return bitwisetrie<A>::navigate(currNode, data, 0);
+			static inline bitnode<B>* navigate(bitnode<B>* currNode, conref<A> data) {
 			}
 
-			static inline bitnode<A>* navigate(bitnode<A>* currNode, conref<A> data, conref<size_t> idx) {
+			static inline bitnode<B>* navigate(bitnode<B>* currNode, conref<A> data, conref<size_t> idx) {
 				binary<A> bitHolder{data};
 
 				return bitwisetrie<A>::navigate(currNode, bitHolder, idx);
 			}
 
-			static bitnode<A>* navigate(bitnode<A>* currNode, conref<binary<A>> bits, conref<size_t> idx) {
+			static bitnode<B>* navigate(bitnode<B>* currNode, conref<binary<A>> bits, conref<size_t> idx) {
 				if (idx < limit) {
 					if (bits.getBit(idx)) {
 						if (currNode->getOne() == nullptr) {
-							currNode->setOne(new bitnode<A>);
+							currNode->setOne(new bitnode<B>);
 						}
 
 						return bitwisetrie<A>::navigate(currNode->getOne(), bits, idx + 1);
 					} else {
 						if (currNode->getZero() == nullptr) {
-							currNode->setZero(new bitnode<A>);
+							currNode->setZero(new bitnode<B>);
 						}
 
 						return bitwisetrie<A>::navigate(currNode->getZero(), bits, idx + 1);
@@ -54,10 +53,9 @@ namespace despairagus {
 			}
 
 		public:
-			explicit bitwisetrie(void) : root{new bitnode<A>} {}
+			explicit bitwisetrie(void) : root{new bitnode<B>} {}
 
-			inline bool insertOnEmpty(conref<A> a) noexcept {
-				bitnode<A>* leafNode = bitwisetrie<A>::navigate(root, a);
+			inline bool insertOnEmpty(conref<B> a) noexcept {
 
 				if (leafNode->isEmpty()) {
 					leafNode->setData(a);
@@ -68,8 +66,8 @@ namespace despairagus {
 				return false;
 			}
 
-			inline bool insertOnNotEmpty(conref<A> a) noexcept {
-				bitnode<A>* leafNode = bitwisetrie<A>::navigate(root, a);
+			inline bool insertOnNotEmpty(conref<B> a) noexcept {
+				bitnode<B>* leafNode = bitwisetrie<A,B>::navigate(root, a);
 
 				if (leafNode->isNotEmpty()) {
 					leafNode->setData(a);
@@ -80,20 +78,20 @@ namespace despairagus {
 				return false;
 			}
 
-			inline bool contains(conref<A> a) noexcept {
-				bitnode<A>* leafNode = bitwisetrie::navigate(root, a);
+			inline void insert(conref<B> a) noexcept {
+				bitnode<B>* leafNode = bitwisetrie<A,B>::navigate(root, a);
 
 				return leafNode->isNotEmpty();
 			}
 
-			inline bool notContains(conref<A> a) noexcept {
-				bitnode<A>* leafNode = bitwisetrie::navigate(root, a);
+			inline bool notContains(conref<B> a) noexcept {
+				bitnode<B>* leafNode = bitwisetrie<A,B>::navigate(root, a);
 
 				return leafNode->isEmpty();
 			}
 
 		private:
-			bitnode<A>* root;
+			bitnode<B>* root;
 		};
 	}
 }
