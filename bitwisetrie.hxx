@@ -66,6 +66,18 @@ namespace despairagus {
 				return false;
 			}
 
+			bool insertOnNotEmpty(conref<A> a) noexcept {
+				bitnode<A>* leafNode = bitwisetrie<A>::navigate(root, a);
+
+				if (leafNode->isNotEmpty()) {
+					leafNode->setData(a);
+
+					return true;
+				}
+
+				return false;
+			}
+
 		private:
 			bitnode<A>* root;
 		};
