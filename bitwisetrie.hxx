@@ -83,6 +83,24 @@ namespace despairagus {
 			inline void insert(conref<B> a) noexcept {
 				bitnode<B>* leafNode = bitwisetrie<A,B>::navigate(root, a);
 
+				leafNode->setData(a);
+			}
+
+			inline bool remove(conref<B> a) noexcept {
+				bitnode<B>* leafNode = bitwisetrie<A,B>::navigate(root, a);
+
+				if (leafNode->isNotEmpty()) {
+					leafNode->dump();
+
+					return true;
+				}
+
+				return false;
+			}
+
+			inline bool contains(conref<B> a) noexcept {
+				bitnode<B>* leafNode = bitwisetrie<A,B>::navigate(root, a);
+
 				return leafNode->isNotEmpty();
 			}
 
