@@ -38,13 +38,13 @@ namespace despairagus {
 							currNode->setOne(new bitnode<A>);
 						}
 
-						return bitwisetrie<A>::navigate(currNode->getOne(), data, bits, idx + 1);
+						return bitwisetrie<A>::navigate(currNode->getOne(), bits, idx + 1);
 					} else {
 						if (currNode->getZero() == nullptr) {
 							currNode->setZero(new bitnode<A>);
 						}
 
-						return bitwisetrie<A>::navigate(currNode->getZero(), data, bits, idx + 1);
+						return bitwisetrie<A>::navigate(currNode->getZero(), bits, idx + 1);
 					}
 				}
 
@@ -54,7 +54,7 @@ namespace despairagus {
 		public:
 			explicit bitwisetrie(void) : root{new bitnode<A>} {}
 
-			bool insertOnEmpty(conref<A> a) noexcept {
+			inline bool insertOnEmpty(conref<A> a) noexcept {
 				bitnode<A>* leafNode = bitwisetrie<A>::navigate(root, a);
 
 				if (leafNode->isEmpty()) {
@@ -66,7 +66,7 @@ namespace despairagus {
 				return false;
 			}
 
-			bool insertOnNotEmpty(conref<A> a) noexcept {
+			inline bool insertOnNotEmpty(conref<A> a) noexcept {
 				bitnode<A>* leafNode = bitwisetrie<A>::navigate(root, a);
 
 				if (leafNode->isNotEmpty()) {
