@@ -6,7 +6,7 @@
 #include "bitnode.hxx"
 
 namespace despairagus {
-	namespace bitwisetrie {
+	namespace bitwisetrieNS {
 		using std::cout;
 		using std::ostream;
 		using namespace bitnodeNS;
