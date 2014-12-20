@@ -9,6 +9,8 @@ namespace despairagus {
 	namespace bitwisetrie {
 		using std::cout;
 		using std::ostream;
+		using namespace bitnodeNS;
+		using namespace binaryNS;
 
 		template <typename A>
 		class bitwisetrie final {
