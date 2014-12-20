@@ -22,6 +22,8 @@ A list of things I still need to do
  - [x] TODO - implement binary container
  - [x] TODO - implement bitwise node
  - [] TODO - implement bitwise trie
+ - [] TODO - make separate implementation that is memory-conservative
+ - [] TODO - implement store hash (bool)
  - [] TODO - implement option to output trie in dot format
 
 
