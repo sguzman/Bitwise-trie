@@ -9,17 +9,20 @@ using conref = const A&;
 
 namespace
 {
+    using namespace binaryNS;
+
     //Pretty ugly otherwise
-    template <size_t t>
-    using constBitSize = conref<std::bitset<t>>;
+    template <typename A>
+    using constBinary = conref<binary<A>>;
 
-    // Typedef's for some primitive types
-    using IntBitset = std::bitset<sizeof(int) << 3>;
-    using uIntBitset = std::bitset<sizeof(unsigned int) << 3>;
+    template <typename A>
+    using bitCon = std::bitset<sizeof(A) << 3>;
 
+    template <typename A>
+    using constBitset = conref<bitCon<A>>;
 
-    template<size_t size>
-    testing::AssertionResult BitSetMatch(constBitSize<size> expected, constBitSize<size> actual) {
+    template <typename A, size_t size = sizeof(A) << 3>
+    testing::AssertionResult BitSetMatch(constBinary<A> expected, constBitset<A> actual) {
         for (size_t i{}; i < size; ++i) {
             if (expected[i] != actual[i]) {
                 return testing::AssertionFailure() << "actual[" << i
