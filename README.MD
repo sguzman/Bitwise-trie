@@ -8,18 +8,18 @@ What I am implementing here is basically an [X-fast trie](https://en.wikipedia.o
 
 `std::bitset<A>` is a container of bits. What I did to store arbitrary data into such a container is as follows,
 1. Allocate a char pointer, pointing to an array of chars that is as big as the data
---* If A is the type of the data, then `char* ptr = new char[sizeof(A)]`
----* Note that `sizeof(A)` returns the size in bytes
---* I used `unsigned char` since it seemed more appropriate
+ * If A is the type of the data, then `char* ptr = new char[sizeof(A)]`
+ * Note that `sizeof(A)` returns the size in bytes
+ * I used `unsigned char` since it seemed more appropriate
 
 2. Copy the data over from the data to the pointer
---* This line for me looks like this, `memcpy((void *) ptr, (const void *const) &a, sz)`
----* `ptr` is the char pointer buffer
----* `a` is the data
----* `sz` is the size of a in bytes
+ * This line for me looks like this, `memcpy((void *) ptr, (const void *const) &a, sz)`
+ * `ptr` is the char pointer buffer
+ * `a` is the data
+ * `sz` is the size of a in bytes
 
 3. Iterate through the data, setting the corresponding bit in the `std::bitset<A>` container
---* Mine is,
+ * Mine is,
 ```c++
 for (size_t i = 0; i < sz; ++i) {
     static byte ch;
