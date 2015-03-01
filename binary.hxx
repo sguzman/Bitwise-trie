@@ -156,10 +156,6 @@ namespace {
 				return operator<<(os, a);
 			}
 
-			explicit operator bool(void) const noexcept {
-				return this->bits.all();
-			}
-
 			constexpr static inline size_t getSize(void) noexcept {
 				return sz;
 			}
