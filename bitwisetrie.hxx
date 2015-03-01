@@ -116,9 +116,7 @@ namespace despairagus {
 			}
 
 			inline bool notContains(conref<A> a) noexcept {
-				bitnode<B>* leafNode = bitwisetrie<A,B>::navigate(root, a);
-
-				return leafNode->isEmpty();
+				return !this->contains(a);
 			}
 
 		private:
