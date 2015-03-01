@@ -139,6 +139,9 @@ namespace {
 				return this->bits.to_ullong();
 			}
 
+			inline unsigned long long getString(void) const noexcept {
+				return this->bits.to_string();
+			}
 
 			template <typename B>
 			friend inline ostream &operator<<(ostream &os, conref<binary<B>> a) noexcept {
