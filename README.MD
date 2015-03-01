@@ -48,7 +48,7 @@ using namespace despairagus;
 using namespace bitwisetrieNS;
 ```
 
- #### Disclaimer
+#### Disclaimer
  This is more of a learning experience than an attempt to construct something useful. The code will be C++11 \(and if I can get it working, C++14\). Expect to be bewildered. I may also try to hook up google test for some good ol' unit testing if I can ever figure out how to use it in a cygwin environment. Or Linux.
 
 A list of things I still need to do
