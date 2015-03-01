@@ -77,6 +77,11 @@ namespace {
 				bits.~bitA();
 			}
 
+			inline explicit operator bool (void) const noexcept {
+				return this->bits.all();
+			}
+
+
 			inline void print(void) const noexcept {
 				binary<A>::print(std::cout, *this);
 			}
