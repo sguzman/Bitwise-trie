@@ -2,6 +2,7 @@
 
 #include <bitset>
 #include <cstring>
+#include <string>
 #include <iostream>
 
 namespace {
@@ -139,7 +140,7 @@ namespace {
 				return this->bits.to_ullong();
 			}
 
-			inline unsigned long long getString(void) const noexcept {
+			inline std::string getString(void) const noexcept {
 				return this->bits.to_string();
 			}
 
