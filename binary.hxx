@@ -81,6 +81,9 @@ namespace {
 				return this->bits.all();
 			}
 
+			template <typename B>
+			inline explicit operator B (void) const noexcept = delete;
+
 
 			inline void print(void) const noexcept {
 				binary<A>::print(std::cout, *this);
