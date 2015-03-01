@@ -61,7 +61,7 @@ namespace despairagus {
 			explicit bitwisetrie(C...) = delete;
 
 			inline explicit operator bool (void) {
-				return this->root->isBarren();
+				return this->root->isNotBarren();
 			}
 
 			template <typename C>
