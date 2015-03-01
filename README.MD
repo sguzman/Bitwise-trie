@@ -39,7 +39,7 @@ A quick rundown on how this is done.
  * Write that to a bitset container
  * Use the bit pattern to traverse to a leaf node
 
- ######To Use
+##### To Use
  Simply include header and unpack the namespace
 ```c++
 #include "bitwisetrie.hxx"
