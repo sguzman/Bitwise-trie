@@ -60,7 +60,7 @@ namespace despairagus {
 			template <typename... C>
 			explicit bitwisetrie(C...) = delete;
 
-			inline explicit operator bool (void) {
+			inline explicit operator bool (void) const noexcept {
 				return this->root->isNotBarren();
 			}
 
@@ -109,13 +109,13 @@ namespace despairagus {
 				return false;
 			}
 
-			inline bool contains(conref<A> a) noexcept {
+			inline bool contains(conref<A> a) const noexcept {
 				bitnode<B>* leafNode = bitwisetrie<A,B>::navigate(root, a);
 
 				return leafNode->isNotEmpty();
 			}
 
-			inline bool notContains(conref<A> a) noexcept {
+			inline bool notContains(conref<A> a) const noexcept {
 				return !this->contains(a);
 			}
 
