@@ -47,10 +47,10 @@ namespace
 
     TEST(BinaryTest, BinInt1)
     {
-        IntBitset iBitA{"01010101"};
-        IntBitset iBitB{"01010101"};
+        binary<int> actual{1};
+        bitCon<int> expected{"1"};
 
-        EXPECT_TRUE(BitSetMatch(iBitA, iBitB));
+        EXPECT_TRUE(BitSetMatch(actual, expected));
     };
 }
 
