@@ -58,6 +58,10 @@ namespace despairagus {
 			explicit bitwisetrie(void) : root{new bitnode<B>} {}
 
 
+			inline explicit operator bool (void) {
+				return this->root->isBarren();
+			}
+
 			template <typename C>
 			explicit operator C (void) = delete;
 
