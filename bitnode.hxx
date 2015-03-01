@@ -24,6 +24,8 @@ namespace {
 			template <typename... B>
 			explicit bitnode(B...) = delete;
 
+			template <typename B>
+			explicit operator B (void) = delete;
 
 			inline ~bitnode(void) noexcept {
 				if (data != nullptr) {

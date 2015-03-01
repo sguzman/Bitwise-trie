@@ -9,6 +9,7 @@ namespace despairagus {
 	namespace bitwisetrieNS {
 		using std::cout;
 		using std::ostream;
+
 		using namespace bitnodeNS;
 		using namespace binaryNS;
 
@@ -55,6 +56,10 @@ namespace despairagus {
 
 		public:
 			explicit bitwisetrie(void) : root{new bitnode<B>} {}
+
+
+			template <typename C>
+			explicit operator C (void) = delete;
 
 			inline bool insertOnEmpty(conref<A> a, conref<B> b) noexcept {
 				bitnode<B>* leafNode = bitwisetrie<A,B>::navigate(root, a);
