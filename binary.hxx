@@ -135,6 +135,11 @@ namespace {
 			template <typename... B>
 			inline bool getBit(B... b) const noexcept = delete;
 
+			inline unsigned long long getULLong(void) const noexcept {
+				return this->bits.to_ullong();
+			}
+
+
 			template <typename B>
 			friend inline ostream &operator<<(ostream &os, conref<binary<B>> a) noexcept {
 				a.print(os, a);
