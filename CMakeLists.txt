@@ -21,5 +21,5 @@ set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-O2 -g")
 
 set(CMAKE_VERBOSE_MAKEFILE "FALSE")
 
-set(SOURCE_FILES main.cxx)
+set(SOURCE_FILES gtest.cxx)
 add_executable(bitwisetrie ${SOURCE_FILES})
