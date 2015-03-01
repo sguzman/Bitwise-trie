@@ -13,7 +13,7 @@ ELSE()
 ENDIF()
 
 
-set(CMAKE_CXX_FLAGS                "-Wall -std=c++1y")
+set(CMAKE_CXX_FLAGS                "-Wall -std=c++1y -lgtest")
 set(CMAKE_CXX_FLAGS_DEBUG          "-g")
 set(CMAKE_CXX_FLAGS_MINSIZEREL     "-Os -DNDEBUG")
 set(CMAKE_CXX_FLAGS_RELEASE        "-O4 -DNDEBUG")
