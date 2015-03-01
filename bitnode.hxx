@@ -89,23 +89,23 @@ namespace {
 			}
 
 			inline bool haveZero(void) const noexcept {
-				return zero == nullptr;
+				return zero != nullptr;
 			}
 
 			inline bool noZero(void) const noexcept {
-				return !this->noZero();
+				return !this->haveZero();
 			}
 
 			inline bool haveOne(void) const noexcept {
-				return one == nullptr;
+				return one != nullptr;
 			}
 
 			inline bool noOne(void) const noexcept {
-				return !this->noOne();
+				return !this->haveOne();
 			}
 
 			inline bool isBarren(void) const noexcept {
-				return this->haveZero() && this->haveOne();
+				return this->noZero() && this->noOne();
 			}
 
 			inline bool isNotBarren(void) const noexcept {
