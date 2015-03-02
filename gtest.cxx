@@ -25,9 +25,9 @@ namespace
     testing::AssertionResult BitSetMatch(constBinary<A> expected, constBitset<A> actual) {
         for (size_t i{}; i < size; ++i) {
             if (expected[i] != actual[i]) {
-                return testing::AssertionFailure() << "actual[" << i
-                        << "] (" << actual[i] << ") != expected[" << i
-                        << "] (" << expected[i] << ")";
+                return testing::AssertionFailure()
+                        << "actual[" << i << "] (" << actual[i]
+                        << ") != expected[" << i << "] (" << expected[i] << ")";
             }
         }
 
