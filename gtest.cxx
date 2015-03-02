@@ -103,7 +103,7 @@ namespace
 
     TEST(BinaryTest, ToULLong1)
     {
-        constexpr const unsigned long long expected{2345678ULL};
+        const unsigned long long expected{2345678ULL};
         binary<decltype(expected)> actual{expected};
 
         EXPECT_EQ(expected, actual.getULLong());
