@@ -23,18 +23,8 @@ namespace {
 			constexpr static const size_t szB{sz << 3};
 			constexpr static const size_t szOneLess{sz - 1};
 
-			static inline void print(std::ostream &os, conref<binary<A>> a) noexcept {
-				for (size_t i = 0; i < sz; ++i) {
-					for (size_t j = 0; j < 8; ++j) {
-						static bit bitIdx;
-						bitIdx = (bit) a.bits[getBitIdx(i, j)];
-						os << bitIdx;
-					}
-
-					if (szOneLess != i) {
-						os << ' ';
-					}
-				}
+			static inline std::ostream& print(std::ostream &os, conref<binary<A>> a) noexcept {
+				return os << a.bits;
 			}
 
 			static inline bit getBitFromByte(conref<byte> data, conref<byte> bitIdx) noexcept {
@@ -145,9 +135,7 @@ namespace {
 			}
 
 			friend inline ostream &operator<<(ostream &os, conref<binary<A>> a) noexcept {
-				a.print(os, a);
-
-				return os;
+				return a.print(os, a);
 			}
 
 			friend inline ostream &operator<<(ostream &os, binary<A> &&a) noexcept {
