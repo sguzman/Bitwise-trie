@@ -52,6 +52,54 @@ namespace
 
         EXPECT_TRUE(BitSetMatch(actual, expected));
     };
+
+    TEST(BinaryTest, BinInt2)
+    {
+        binary<int> actual{2};
+        bitCon<int> expected{"10"};
+
+        EXPECT_TRUE(BitSetMatch(actual, expected));
+    };
+
+    TEST(BinaryTest, BinInt3)
+    {
+        binary<int> actual{3};
+        bitCon<int> expected{"11"};
+
+        EXPECT_TRUE(BitSetMatch(actual, expected));
+    };
+
+    TEST(BinaryTest, BinInt4)
+    {
+        binary<int> actual{15};
+        bitCon<int> expected{"1111"};
+
+        EXPECT_TRUE(BitSetMatch(actual, expected));
+    };
+
+    TEST(BinaryTest, BinInt5)
+    {
+        binary<int> actual{66};
+        bitCon<int> expected{"1000010"};
+
+        EXPECT_TRUE(BitSetMatch(actual, expected));
+    };
+
+    TEST(BinaryTest, BinInt6)
+    {
+        binary<int> actual{65356};
+        bitCon<int> expected{"1111111101001100"};
+
+        EXPECT_TRUE(BitSetMatch(actual, expected));
+    };
+
+    TEST(BinaryTest, BinInt7)
+    {
+        binary<int> actual{45364535};
+        bitCon<int> expected{"10101101000011010100110111"};
+
+        EXPECT_TRUE(BitSetMatch(actual, expected));
+    };
 }
 
 
