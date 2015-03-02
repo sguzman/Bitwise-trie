@@ -144,15 +144,13 @@ namespace {
 				return this->bits.to_string();
 			}
 
-			template <typename B>
-			friend inline ostream &operator<<(ostream &os, conref<binary<B>> a) noexcept {
+			friend inline ostream &operator<<(ostream &os, conref<binary<A>> a) noexcept {
 				a.print(os, a);
 
 				return os;
 			}
 
-			template <typename B>
-			friend inline ostream &operator<<(ostream &os, binary<B> &&a) noexcept {
+			friend inline ostream &operator<<(ostream &os, binary<A> &&a) noexcept {
 				return operator<<(os, a);
 			}
 
